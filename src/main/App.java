@@ -36,8 +36,9 @@ import java.sql.Statement;
 
 public class App {
 	//private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	private static final String DATABASE_URL = "jdbc:mysql://localhost/";
+	private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; 
+	//private static final String DATABASE_URL = "jdbc:mysql://localhost/"; /* * THIS IS WHEN WE WILL CREATE THE DATABASE */
+	private static final String DATABASE_URL = "jdbc:mysql://localhost/javatest_db"; /* ** THIS IS WHEN WE ARE GOING TO CREATE A DATABASE TABLE*/
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "";
 	
@@ -55,7 +56,13 @@ public class App {
 					);
 			statement = connection.createStatement();
 			
-			String sql = "CREATE DATABASE JavaTest_DB";
+			//String sql = "CREATE DATABASE JavaTest_DB"; /* * THIS IS WHEN WE WILL CREATE THE DATABASE */
+			String sql = "CREATE TABLE Students (id INTEGER NOT NULL,"
+					+ "FirstName VARCHAR (255),"
+					+ "LastName VARCHAR (255),"
+					+ "Email VARCHAR (255),"
+					+ "Age INTEGER,"
+					+ "PRIMARY KEY (id))"; /* ** THIS IS WHEN WE ARE GOING TO CREATE A DATABASE TABLE*/
 			
 			statement.executeUpdate(sql);
 			
